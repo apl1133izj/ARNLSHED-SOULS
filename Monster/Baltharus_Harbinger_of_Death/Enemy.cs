@@ -7,7 +7,7 @@ public class Enemy : MonoBehaviour
     public ZombiSpaw zombiSpaw;
     HP hpEnemy;
 
-    public GameObject playerPos;//ÇÃ·¹ÀÌ¾î À§Ä¡ °¡Áö°í ¿À±â
+    public GameObject playerPos;//í”Œë ˆì´ì–´ ìœ„ì¹˜ ê°€ì§€ê³  ì˜¤ê¸°
     public GameObject playerAt3pos;
 
     Rigidbody body;
@@ -21,9 +21,9 @@ public class Enemy : MonoBehaviour
     public float[] speed;
     int speedType;
     [SerializeField]
-    bool donMove = false; //0ÀÎ°æ¿ì findPlayer½ÇÇà 1ÀÏ°æ¿ì ½ÇÇàºÒ°¡
+    bool donMove = false; //0ì¸ê²½ìš° findPlayerì‹¤í–‰ 1ì¼ê²½ìš° ì‹¤í–‰ë¶ˆê°€
 
-    bool hit;  //ÀÏ¹İ °ø°İÀÏ°æ¿ì
+    bool hit;  //ì¼ë°˜ ê³µê²©ì¼ê²½ìš°
     public int attackDamage;
     bool attackTimeBool = true;
 
@@ -35,9 +35,9 @@ public class Enemy : MonoBehaviour
     float findPlayer;
     float findSpaw;
 
-    //¸ÂÀ»°æ¿ì
-    public int hitType; //0ÀÏ°æ¿ì ÁÖ¸Ô,1ÀÏ°æ¿ì ¹ßÂ÷±â ·Î¸¸ °ø°İ°¡´É2ÀÎ°æ¿ì´Â ¸ğµÎ °¡´É;
-    public GameObject[] hitTypeGameObject;//°ø°İ Å¸ÀÔÀ» ¾Ë·ÁÁÖ´Â °ÔÀÓ¿ÀºêÁ§Æ®¸¦ È®¼ºÈ­ÇÏ°Å³ª ºñÈ°¼ºÈ­
+    //ë§ì„ê²½ìš°
+    public int hitType; //0ì¼ê²½ìš° ì£¼ë¨¹,1ì¼ê²½ìš° ë°œì°¨ê¸° ë¡œë§Œ ê³µê²©ê°€ëŠ¥2ì¸ê²½ìš°ëŠ” ëª¨ë‘ ê°€ëŠ¥;
+    public GameObject[] hitTypeGameObject;//ê³µê²© íƒ€ì…ì„ ì•Œë ¤ì£¼ëŠ” ê²Œì„ì˜¤ë¸Œì íŠ¸ë¥¼ í™•ì„±í™”í•˜ê±°ë‚˜ ë¹„í™œì„±í™”
     int hitTypeMaxTime;
 
     [SerializeField]
@@ -48,7 +48,7 @@ public class Enemy : MonoBehaviour
     public int attackcout;
 
     public GameObject attackSize;
-    public GameObject shildGameObject;//°ø°İ ¸ğ¼Ç3 Âî¸£±â ´ë±â ÀÚ¼¼ Áß ½¯µå
+    public GameObject shildGameObject;//ê³µê²© ëª¨ì…˜3 ì°Œë¥´ê¸° ëŒ€ê¸° ìì„¸ ì¤‘ ì‰´ë“œ
     [SerializeField]
     bool attackBool;
     float[] warringTime = { 5.3f, 3.5f };
@@ -59,16 +59,16 @@ public class Enemy : MonoBehaviour
     public AudioClip[] warkeClip;
     int warkTypeAudioCount;
     [SerializeField]
-    bool boseSpaw;  //º¸½º°¡ ½ºÆù ÇßÀ»½Ã °Å¸® »ó°ü ¾øÀÌ ÇÃ·¹ÀÌ¾î ÃßÀû
+    bool boseSpaw;  //ë³´ìŠ¤ê°€ ìŠ¤í° í–ˆì„ì‹œ ê±°ë¦¬ ìƒê´€ ì—†ì´ í”Œë ˆì´ì–´ ì¶”ì 
 
     public HP hP;
     public GameObject hpBar;
 
-    public GameObject g_ClearPotal;//º¸½º°¡ Ã³Áö µÉ°æ¿ì Æ÷Å»¹æ À¸·Î º¹±Í ½ÃÅ°´Â Æ÷Å»
+    public GameObject g_ClearPotal;//ë³´ìŠ¤ê°€ ì²˜ì§€ ë ê²½ìš° í¬íƒˆë°© ìœ¼ë¡œ ë³µê·€ ì‹œí‚¤ëŠ” í¬íƒˆ
     public GameObject[] g_ClearItem;
     public GameObject attackParticle;
 
-    //ÇÃ·¹ÀÌ¾î¿¡ ÀÇÇÑ »óÅÂ ÀÌ»ó
+    //í”Œë ˆì´ì–´ì— ì˜í•œ ìƒíƒœ ì´ìƒ
     public bool b_Freeze;
     public float f_FreezeTime;
     public GameObject g_FreezePaticle;
@@ -106,7 +106,7 @@ public class Enemy : MonoBehaviour
             f_FreezeTime += Time.deltaTime;
             speed[2] = 0;
             g_FreezePaticle.gameObject.SetActive(true);
-            //½ºÅ³ÀÌ ¾÷±×·¹ÀÌµå µÇ±âÀü¿¡´Â 2ÃÊ + °­È­ µÉ¶§¸¶´Ù 1ÃÊ¾¿Áõ°¡
+            //ìŠ¤í‚¬ì´ ì—…ê·¸ë ˆì´ë“œ ë˜ê¸°ì „ì—ëŠ” 2ì´ˆ + ê°•í™” ë ë•Œë§ˆë‹¤ 1ì´ˆì”©ì¦ê°€
             if (f_FreezeTime >= 2 + skill.skillEnhanceCount[3])
             {
                 g_FreezePaticle.gameObject.SetActive(false);
@@ -165,7 +165,7 @@ public class Enemy : MonoBehaviour
         Vector3 randomForce4 = new Vector3(Random.Range(-1f, 1f), Random.Range(1f, 2f), Random.Range(-1f, 1f)) * 300f;
         item4.GetComponent<Rigidbody>().AddForce(randomForce4);
     }
-    //Á»ºñ ½ºÆù °ø°İ(Á»ºñ½ºÆù ½ºÅ©¸³Æ® ºñÈ°¼ºÈ­ »óÅÂ¿¡¼­ 200ÃÊ ÀÌ»óÁö³ª°Å³ª ÇÇ°¡ 500ÀÌÇÏ 499ÀÌ»óÀÏ°æ¿ì È°¼ºÈ­)
+    //ì¢€ë¹„ ìŠ¤í° ê³µê²©(ì¢€ë¹„ìŠ¤í° ìŠ¤í¬ë¦½íŠ¸ ë¹„í™œì„±í™” ìƒíƒœì—ì„œ 200ì´ˆ ì´ìƒì§€ë‚˜ê±°ë‚˜ í”¼ê°€ 500ì´í•˜ 499ì´ìƒì¼ê²½ìš° í™œì„±í™”)
     void SpawZombi()
     {
         float spawTime = 0;
@@ -227,7 +227,7 @@ public class Enemy : MonoBehaviour
             animator.SetBool("AttackBool", attackBool);
         }
     }
-    void warkeSoundAudiotrueFalse()//°ÉÀ½À» ¸ØÃß¸é warkeSound endabel false °ÉÀ¸¸é true;
+    void warkeSoundAudiotrueFalse()//ê±¸ìŒì„ ë©ˆì¶”ë©´ warkeSound endabel false ê±¸ìœ¼ë©´ true;
     {
         if (runBool != true)
         {
@@ -254,51 +254,51 @@ public class Enemy : MonoBehaviour
         {
             if (!spawAnimator)
             {
-                if (!boseSpaw)//º¸½º°¡ ¼ÒÈ¯ÇÑ ÀûÀÌ ¾Æ´Ò°æ¿ì ½ºÆùÀ§Ä¡ ÀúÀå
+                if (!boseSpaw)//ë³´ìŠ¤ê°€ ì†Œí™˜í•œ ì ì´ ì•„ë‹ê²½ìš° ìŠ¤í°ìœ„ì¹˜ ì €ì¥
                 {
                     spawVector = spawPos.transform.position;
                 }
                 player = GameObject.Find("Player");
-                float findPlayer = Vector3.Distance(player.transform.position, transform.position);//ÇÃ·¹ÀÌ¾î°¡ ÀÖ´Â ÇöÀç °Å¸® ±¸ÇÏ±â
-                float findSpaw = Vector3.Distance(spawVector, transform.position);//ÇÃ·¹ÀÌ¾î°¡ Ã£À» ¼ö ¾ø´Â °Å¸®ÀÏ °æ¿ì ÀûÀÌ ½ºÆùµÈ À§Ä¡·Î µÇµ¹°¥¶§ ÇÊ¿äÇÑ °Å¸® ±¸ÇÏ±â 
-                if (findPlayer > attackLen[attLenType])//ÇÃ·¹ÀÌ¾î¿ÍÀÇ °Å¸®°¡ attackLen(3)º¸´Ù Å¬°æ¿ì ¾Æ·¡ÄÚµå ½ÇÇà   
+                float findPlayer = Vector3.Distance(player.transform.position, transform.position);//í”Œë ˆì´ì–´ê°€ ìˆëŠ” í˜„ì¬ ê±°ë¦¬ êµ¬í•˜ê¸°
+                float findSpaw = Vector3.Distance(spawVector, transform.position);//í”Œë ˆì´ì–´ê°€ ì°¾ì„ ìˆ˜ ì—†ëŠ” ê±°ë¦¬ì¼ ê²½ìš° ì ì´ ìŠ¤í°ëœ ìœ„ì¹˜ë¡œ ë˜ëŒê°ˆë•Œ í•„ìš”í•œ ê±°ë¦¬ êµ¬í•˜ê¸° 
+                if (findPlayer > attackLen[attLenType])//í”Œë ˆì´ì–´ì™€ì˜ ê±°ë¦¬ê°€ attackLen(3)ë³´ë‹¤ í´ê²½ìš° ì•„ë˜ì½”ë“œ ì‹¤í–‰   
                 {
                     hpBar.gameObject.SetActive(true);
                     discoveryBool = false;
                     findPlayerBool = false;
-                    if (findPlayer < 20f)//ÇÃ·¹ÀÌ¾î¿ÍÀÇ °Å¸®°¡ 15º¸´Ù ÀÛÀ»°æ¿ì ÇÃ·¹ÀÌ¾î¸¦ ÃßÀû
+                    if (findPlayer < 20f)//í”Œë ˆì´ì–´ì™€ì˜ ê±°ë¦¬ê°€ 15ë³´ë‹¤ ì‘ì„ê²½ìš° í”Œë ˆì´ì–´ë¥¼ ì¶”ì 
                     {
                         runBool = true;
-                        LookAtPlayer(player);//ÇÃ·¹ÀÌ¾î¸¦ ¹Ù¶óº¸µµ·ÏÇÔ
+                        LookAtPlayer(player);//í”Œë ˆì´ì–´ë¥¼ ë°”ë¼ë³´ë„ë¡í•¨
                         transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed[speedType] * Time.deltaTime);
                     }
-                    else//±×·¸Áö ¾ÊÀ»°æ¿ì ½ºÆù À§Ä¡·Î µÇµ¹¾Æ°¨
+                    else//ê·¸ë ‡ì§€ ì•Šì„ê²½ìš° ìŠ¤í° ìœ„ì¹˜ë¡œ ë˜ëŒì•„ê°
                     {
                         runBool = true;
                         hpBar.gameObject.SetActive(false);
-                        if (!boseSpaw && !stabBool)//Á»ºñ°¡ ¾Æ´Ò°æ¿ì¿¡¸¸ ½ºÆùÀ§Ä¡·Î µ¹¾Æ°¨
+                        if (!boseSpaw && !stabBool)//ì¢€ë¹„ê°€ ì•„ë‹ê²½ìš°ì—ë§Œ ìŠ¤í°ìœ„ì¹˜ë¡œ ëŒì•„ê°
                         {
                             transform.position = Vector3.MoveTowards(transform.position, spawVector, speed[speedType] * Time.deltaTime);
                             LookAtPlayer(spawPos);
                         }
-                        else//Á»ºñÀÏ°æ¿ì ÇÑ¹ø ÃßÀûÀ» ½ÃÀÛÇÏ¸é °è¼Ó ÇÃ·¹ÀÌ¾î¸¦ ÃßÀûÇÔ
+                        else//ì¢€ë¹„ì¼ê²½ìš° í•œë²ˆ ì¶”ì ì„ ì‹œì‘í•˜ë©´ ê³„ì† í”Œë ˆì´ì–´ë¥¼ ì¶”ì í•¨
                         {
                             transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed[speedType] * Time.deltaTime);
-                            LookAtPlayer(player);//ÇÃ·¹ÀÌ¾î¸¦ ¹Ù¶óº¸µµ·ÏÇÔ
+                            LookAtPlayer(player);//í”Œë ˆì´ì–´ë¥¼ ë°”ë¼ë³´ë„ë¡í•¨
                         }
                     }
                 }
-                else//ÇÃ·¹ÀÌ¾î¿ÍÀÇ °Å¸®°¡ attackLen(3)º¸´Ù ÀÛÀ» °æ¿ì ÇÃ·¹ÀÌ¾î°¡ °ø°İ ¹üÀ§ ¾È¿¡ µé¾î¿Â »óÅÂ°¡ µÇ±â¶§¹®¿¡ °ø°İ ´ë±â ¾Ö´Ï¸ŞÀÌ¼Ç ÀÌ È°¼ºÈ­
+                else//í”Œë ˆì´ì–´ì™€ì˜ ê±°ë¦¬ê°€ attackLen(3)ë³´ë‹¤ ì‘ì„ ê²½ìš° í”Œë ˆì´ì–´ê°€ ê³µê²© ë²”ìœ„ ì•ˆì— ë“¤ì–´ì˜¨ ìƒíƒœê°€ ë˜ê¸°ë•Œë¬¸ì— ê³µê²© ëŒ€ê¸° ì• ë‹ˆë©”ì´ì…˜ ì´ í™œì„±í™”
                 {
                     runBool = false;
                     findPlayerBool = true;
                     if (findPlayer < 2.5f)
                     {
                         backWalkBool = true;
-                        // ÇöÀç À§Ä¡ÀÇ Y°ªÀ» °íÁ¤ÇÏ¿© ÀÌµ¿
+                        // í˜„ì¬ ìœ„ì¹˜ì˜ Yê°’ì„ ê³ ì •í•˜ì—¬ ì´ë™
                         Vector3 targetPosition = new Vector3(
-                            transform.position.x, // ÇöÀç XÁÂÇ¥
-                            transform.position.y, // YÁÂÇ¥ °íÁ¤
+                            transform.position.x, // í˜„ì¬ Xì¢Œí‘œ
+                            transform.position.y, // Yì¢Œí‘œ ê³ ì •
                             transform.position.z
                         );
 
@@ -312,10 +312,10 @@ public class Enemy : MonoBehaviour
                         backWalkBool = false;
                         discoveryBool = true;
                     }
-                    if (attackcout != 3) LookAtPlayer(player);//ÇÃ·¹ÀÌ¾î¸¦ ¹Ù¶óº¸µµ·ÏÇÔ
+                    if (attackcout != 3) LookAtPlayer(player);//í”Œë ˆì´ì–´ë¥¼ ë°”ë¼ë³´ë„ë¡í•¨
 
                 }
-                if (findSpaw < attackLen[1])//½ºÆù°ú ÀÇ °Å¸®°¡ 0ÀÏ°æ¿ì ´Ş¸®´Â ¾Ö´Ï¸ŞÀÌ¼ÇÀÌ falseµÊ
+                if (findSpaw < attackLen[1])//ìŠ¤í°ê³¼ ì˜ ê±°ë¦¬ê°€ 0ì¼ê²½ìš° ë‹¬ë¦¬ëŠ” ì• ë‹ˆë©”ì´ì…˜ì´ falseë¨
                 {
                     runBool = false;
                 }
@@ -387,16 +387,6 @@ public class Enemy : MonoBehaviour
 
         if (boseType == boseType.SkullWarrior)
         {
-            if (attackBool && attackcout != 4)
-            {
-                Debug.Log("1");
-                donMove = true;
-            }
-            else
-            {
-                Debug.Log("2");
-                donMove = false;
-            }
             if (!spawAnimator)
             {
                 attackTime += Time.deltaTime;
@@ -450,6 +440,7 @@ public class Enemy : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
         attackcout = 4;
         attackTimeBool = true;
+        yield return null;
     }
     public void DontMove(int speed)
     {
@@ -494,7 +485,7 @@ public class Enemy : MonoBehaviour
     }
     public void WarkeAudio()
     {
-        //°È´Â È¿°úÀ½ 
+        //ê±·ëŠ” íš¨ê³¼ìŒ 
         warkTypeAudioCount += 1;
         if (warkTypeAudioCount == 20)
         {
@@ -513,7 +504,6 @@ public class Enemy : MonoBehaviour
     {
         if (attackcout != 3)
         {
-
             if (other.gameObject.CompareTag("HandAttack") && hitType == 0)
             {
                 hit = true;
